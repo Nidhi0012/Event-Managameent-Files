@@ -1,0 +1,11 @@
+create database test_db;
+use test_db;
+create table user( user_id int, primary key(id), name varchar(255), email varchar(255), password varchar(255));
+create table organizer(organizer_id int, primary key(organizer_id), name varchar(255), email varchar(255), password varchar(255));
+desc user;
+desc organizer;
+desc event;
+desc booking;
+create table event( event_id int, primary key(event_id), name varchar(255), venue varchar(255), price varchar(255) , organizer_id int, foreign key (organizer_id) references organizer(organizer_id));
+create table booking(booking_id int, primary key(booking_id), event_id int, user_id int, foreign key(event_id)  references event(event_id), foreign key(user_id) references user(user_id));
+show tables;
